@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior Living Placement Quiz</title>
+
+  <style>
+    body {
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .quiz-container {
+      max-width: 780px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 2px solid #01539c;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .quiz-container h1 {
+      text-align: center;
+      color: #01539c;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .quiz-container p {
+      text-align: center;
+      color: #333;
+      font-size: 15px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .quiz-section {
+      margin-bottom: 22px;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(1, 83, 156, 0.25);
+      background: rgba(1, 83, 156, 0.04);
+    }
+
+    .quiz-section h3 {
+      color: #01539c;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 15px;
+      color: #222;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .quiz-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #01539c;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .quiz-button:hover {
+      background: #013f74;
+    }
+
+    .result-box {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #01539c;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .result-description {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+    .tour-button {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 12px 20px;
+      background: white;
+      color: #01539c;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid white;
+      transition: 0.2s ease;
+    }
+
+    .tour-button:hover {
+      background: #e9f2ff;
+      border: 2px solid #e9f2ff;
+    }
+
+    .small-note {
+      font-size: 12px;
+      color: #444;
+      margin-top: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="quiz-container">
+    <h1>Senior Living Placement Quiz</h1>
+    <p>
+      Answer the questions below to help determine the best level of care for you or a loved one.
+      Results are sent directly to our team for review.
+    </p>
+
+    <form id="seniorLivingQuiz" action="https://formspree.io/f/xbdayorz" method="POST">
+
+      <!-- Contact Info -->
+      <div class="quiz-section">
+        <h3>Your Information</h3>
+
+        <label>
+          Name:
+          <input type="text" name="Name" required>
+        </label>
+
+        <label>
+          Email:
+          <input type="email" name="Email" required>
+        </label>
+
+        <label>
+          Phone:
+          <input type="text" name="Phone">
+        </label>
+
+        <label style="margin-top: 15px;">
+          <input type="checkbox" name="RequestTour" value="Yes">
+          Yes, I would like someone to contact me to schedule a tour.
+        </label>
+      </div>
+
+      <!-- Questions -->
+      <div class="quiz-section">
+        <h3>1. Do you need help managing medications?</h3>
+        <label><input type="radio" name="Q1" value="1" required> No, I take my medications independently</label>
+        <label><input type="radio" name="Q1" value="2"> I sometimes forget, but I mostly manage fine</label>
+        <label><input type="radio" name="Q1" value="3"> Yes, I need reminders or assistance</label>
+        <label><input type="radio" name="Q1" value="4"> Yes, I need full medication management and monitoring</label>
+      </div>
+
+      <div class="quiz-section">
+        <h3>2. How much help do you need with daily activities (bathing, dressing, toileting, mobility)?</h3>
+        <label><input type="radio" name="Q2" value="1" required> None</label>
+        <label><input type="radio" name="Q2" value="2"> A little help occasionally</label>
+        <label><input type="radio" name="Q2" value="3"> I need regular assistance most days</label>
+        <label><input type="radio" name="Q2" value="4"> I need frequent or constant assistance</label>
+      </div>
+
+      <div class="quiz-section">
+        <h3>3. Do you require regular medical care or nurse involvement?</h3>
+        <label><input type="radio" name="Q3" value="1" required> No, I’m generally healthy</label>
+        <label><input type="radio" name="Q3" value="2"> No, but I may need occasional support</label>
+        <label><input type="radio" name="Q3" value="3"> Yes, I need medical oversight and services</label>
+        <label><input type="radio" name="Q3" value="4"> Yes, I require intense medical care or rehabilitation</label>
+      </div>
+
+      <div class="quiz-section">
+        <h3>4. Are you able to prepare meals for yourself?</h3>
+        <label><input type="radio" name="Q4" value="1" required> Yes, always</label>
+        <label><input type="radio" name="Q4" value="2"> Sometimes, but it’s becoming harder</label>
+        <label><input type="radio" name="Q4" value="3"> No, I need meals provided daily</label>
+        <label><input type="radio" name="Q4" value="4"> No, I may need assistance eating or dietary monitoring</label>
+      </div>
+
+      <div class="quiz-section">
+        <h3>5. Do you need housekeeping or laundry support?</h3>
+        <label><input type="radio" name="Q5" value="1" required> No</label>
+        <label><input type="radio" name="Q5" value="2"> Some help would be nice</label>
+        <label><input type="radio" name="Q5" value="3"> Yes, I need regular help</label>
+        <label><input type="radio" name="Q5" value="4"> Yes, I need full assistance</label>
+      </div>
+
+      <div class="quiz-section">
+        <h3>6. Do you want snow removal, garbage, landscaping, and maintenance handled for you?</h3>
+        <label><input type="radio" name="Q6" value="1" required> Yes, I want those responsibilities taken care of</label>
+        <label><input type="radio" name="Q6" value="2"> Yes, and I also want meals available</label>
+        <label><input type="radio" name="Q6" value="3"> Yes, and I need supportive services</label>
+        <label><input type="radio" name="Q6" value="4"> I need full care and medical support</label>
+      </div>
+
+      <div class="quiz-section">
+        <h3>7. Have you had recent falls, hospital stays, or major health changes?</h3>
+        <label><input type="radio" name="Q7" value="1" required> No</label>
+        <label><input type="radio" name="Q7" value="2"> Yes, but I’m still fairly independent</label>
+        <label><input type="radio" name="Q7" value="3"> Yes, and I now need daily assistance</label>
+        <label><input type="radio" name="Q7" value="4"> Yes, and I need rehab or skilled nursing care</label>
+      </div>
+
+      <!-- Hidden Fields -->
+      <input type="hidden" name="PlacementResult" id="PlacementResult">
+      <input type="hidden" name="TotalScore" id="TotalScore">
+
+      <button type="button" class="quiz-button" onclick="calculateResult()">Get My Results</button>
+
+      <div id="resultBox" class="result-box">
+        <div id="resultDisplay"></div>
+        <div id="resultDescription" class="result-description"></div>
+
+        <a class="tour-button" href="https://gantonretirement.com/contact-us/" target="_blank">
+          Schedule a Tour
+        </a>
+      </div>
+
+      <div class="small-note">
+        *This quiz is not a medical assessment. Our team will confirm the best fit with you.
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    function calculateResult() {
+      const form = document.getElementById("seniorLivingQuiz");
+      let total = 0;
+
+      for (let i = 1; i <= 7; i++) {
+        const answer = document.querySelector(`input[name="Q${i}"]:checked`);
+        if (!answer) {
+          alert("Please answer all questions before submitting.");
+          return;
+        }
+        total += parseInt(answer.value);
+      }
+
+      let placement = "";
+      let description = "";
+
+      if (total <= 13) {
+        placement = "Independent Living";
+        description =
+          "Independent Living is best for individuals who are able to live independently but want the convenience of maintenance-free living, including snow removal, landscaping, garbage services, and home maintenance.";
+      } else if (total <= 20) {
+        placement = "Semi-Independent Living";
+        description =
+          "Semi-Independent Living is best for individuals who are mostly independent but would benefit from supportive services and up to three meals per day, without ongoing medical care.";
+      } else if (total <= 27) {
+        placement = "Assisted Living";
+        description =
+          "Assisted Living is best for individuals who need regular help with daily activities and benefit from meals, laundry, housekeeping, medication administration, medical services, and access to physician support.";
+      } else {
+        placement = "Skilled Nursing Care";
+        description =
+          "Skilled Nursing Care is best for individuals who require intensive medical services, rehabilitation, and 24/7 nursing support, along with meals, medication management, and advanced care.";
+      }
+
+      // Show result box
+      document.getElementById("resultBox").style.display = "block";
+      document.getElementById("resultDisplay").innerText =
+        "Your recommended placement is: " + placement;
+
+      document.getElementById("resultDescription").innerText = description;
+
+      // Save values for email
+      document.getElementById("PlacementResult").value = placement;
+      document.getElementById("TotalScore").value = total;
+
+      // Submit to Formspree after a short delay
+      setTimeout(() => {
+        form.submit();
+      }, 900);
+    }
+  </script>
+
+</body>
+</html>
